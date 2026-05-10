@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oresfall | Personal Lab</title>
+    <title>Oresfall | Lab Layout</title>
     <style>
         * {
             margin: 0;
@@ -13,131 +13,200 @@
 
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
-            color: #fff;
-            /* Menggunakan link Imgur kamu sebagai background */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://i.imgur.com/XuTlbkf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #121212; /* Warna dasar gelap */
+            color: #e0e0e0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+
+        /* Navigasi / Header Sederhana di Atas */
+        header {
+            width: 100%;
+            padding: 20px 5%;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #24292e;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        header {
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-
         header h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding-bottom: 50px;
-        }
-
-        /* Efek Glassmorphism untuk Card */
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .card h2 {
-            color: #00d4ff;
-            margin-bottom: 15px;
             font-size: 1.5rem;
+            color: #fff;
+            letter-spacing: 1px;
         }
 
-        .card p {
-            font-size: 0.95rem;
+        header .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        header .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* --- CONTAINER UTAMA --- */
+        .main-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Kiri 2 bagian, Kanan 1 bagian */
+            gap: 30px;
+        }
+
+        /* --- BAGIAN KIRI: KONTEN UTAMA (KOTAK BESAR) --- */
+        .hero-section {
+            background-color: #1a1a1a;
+            border: 1px solid #24292e;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Border dekoratif seperti di gambar */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #00d4ff;
+        }
+
+        .hero-section h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
             line-height: 1.6;
-            color: #e0e0e0;
+            color: #b0b0b0;
+            margin-bottom: 20px;
         }
 
-        .tag-container {
-            margin-top: 15px;
+        .hero-section .featured-image {
+            width: 100%;
+            height: 300px;
+            background-color: #24292e;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-style: italic;
+            border: 1px dashed #444;
         }
 
-        .tag {
-            background: #00d4ff;
-            color: #000;
-            padding: 3px 10px;
-            border-radius: 20px;
+        /* --- BAGIAN KANAN: UPDATE TERBARU (KOTAK KECIL) --- */
+        .updates-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .updates-title {
+            font-size: 1.1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .update-card {
+            background-color: #1a1a1a;
+            border: 1px solid #24292e;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
+        }
+
+        .update-card:hover {
+            border-color: #00d4ff;
+        }
+
+        .update-card .date {
             font-size: 0.75rem;
-            font-weight: bold;
-            margin-right: 5px;
+            color: #666;
+            margin-bottom: 5px;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
+        .update-card h3 {
+            color: #00d4ff;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .update-card p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.4;
+        }
+
+        /* Responsif untuk layar HP */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr; /* Jadi satu kolom penuh */
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>ORESFALL</h1>
-    <p>IT Student | Developer | Translator</p>
+    <h1>ORES' LAB</h1>
+    <div class="nav-links">
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#blog">Blog</a>
+    </div>
 </header>
 
-<div class="container">
-    <!-- Card 1: Software Development -->
-    <div class="card">
-        <h2>Software Dev</h2>
-        <p>Making an automated program and sometimes fun discord bot utilities for friends.</p>
-        <div class="tag-container">
-            <span class="tag">PYTHON</span>
-            <span class="tag">AUTOMATION</span>
+<div class="main-container">
+    <div class="hero-section">
+        <h2>Proyek Unggulan: Discord Automation Bot v2</h2>
+        <p>Sedang dalam tahap pengembangan struktur database baru menggunakan Python dan integrasi API eksternal untuk otomasi manajemen server secara real-time.</p>
+        <div class="featured-image">
+            [ Masukkan Gambar Proyek di Sini ]
         </div>
     </div>
 
-    <!-- Card 2: Networking -->
-    <div class="card">
-        <h2>Networking</h2>
-        <p>Experimenting configuration on Cisco Packet Tracer, SSH, Static Routing, dan network security.</p>
-        <div class="tag-container">
-            <span class="tag">CISCO</span>
-            <span class="tag">SSH</span>
-        </div>
-    </div>
+    <div class="updates-column">
+        <div class="updates-title">Update Terbaru</div>
 
-    <!-- Card 3: Creative Writing -->
-    <div class="card">
-        <h2>Translation</h2>
-        <p>Fun translation projects, currently only Limbus Company.</p>
-        <div class="tag-container">
-            <span class="tag">ENGLISH</span>
-            <span class="tag">INDONESIAN</span>
+        <div class="update-card">
+            <span class="date">10 Mei 2026</span>
+            <h3>Cisco SSH Config</h3>
+            <p>Menambahkan dokumentasi baru tentang konfigurasi SSH aman pada Router 2911.</p>
+        </div>
+
+        <div class="update-card">
+            <span class="date">08 Mei 2026</span>
+            <h3>Translasi Bab 5</h3>
+            <p>Translasi materi creative writing bab 5 telah selesai dan diunggah ke repositori.</p>
+        </div>
+
+        <div class="update-card">
+            <span class="date">05 Mei 2026</span>
+            <h3>Python Pillow Script</h3>
+            <p>Skrip kompresi gambar otomatis menggunakan Pillow berhasil dibuat.</p>
         </div>
     </div>
 </div>
-
-<footer>
-    &copy; 2026 Oresfall. Built with GitHub Pages.
-</footer>
 
 </body>
 </html>
