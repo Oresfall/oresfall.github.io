@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oresfall | Personal Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            color: #fff;
+            /* Menggunakan link Imgur kamu sebagai background */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://i.imgur.com/XuTlbkf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding-bottom: 50px;
+        }
+
+        /* Efek Glassmorphism untuk Card */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .tag-container {
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #00d4ff;
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ORESFALL</h1>
+    <p>IT Student | Developer | Translator</p>
+</header>
+
+<div class="container">
+    <!-- Card 1: Software Development -->
+    <div class="card">
+        <h2>Software Dev</h2>
+        <p>Making an automated program and sometimes fun discord bot utilities for friends.</p>
+        <div class="tag-container">
+            <span class="tag">PYTHON</span>
+            <span class="tag">AUTOMATION</span>
+        </div>
+    </div>
+
+    <!-- Card 2: Networking -->
+    <div class="card">
+        <h2>Networking</h2>
+        <p>Experimenting configuration on Cisco Packet Tracer, SSH, Static Routing, dan network security.</p>
+        <div class="tag-container">
+            <span class="tag">CISCO</span>
+            <span class="tag">SSH</span>
+        </div>
+    </div>
+
+    <!-- Card 3: Creative Writing -->
+    <div class="card">
+        <h2>Translation</h2>
+        <p>Fun translation projects, currently only Limbus Company.</p>
+        <div class="tag-container">
+            <span class="tag">ENGLISH</span>
+            <span class="tag">INDONESIAN</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Oresfall. Built with GitHub Pages.
+</footer>
+
+</body>
+</html>
