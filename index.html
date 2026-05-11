@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,6 @@
 
         .nav-links a:hover { color: #00d4ff; }
 
-        /* --- STYLING LANGUAGE SWITCHER --- */
         .lang-switch {
             display: flex;
             gap: 10px;
@@ -69,13 +68,8 @@
             font-weight: bold;
         }
 
-        .lang-switch a.active {
-            color: #00d4ff;
-        }
-
-        .lang-switch a:hover:not(.active) {
-            color: #aaa;
-        }
+        .lang-switch a.active { color: #00d4ff; }
+        .lang-switch a:hover:not(.active) { color: #aaa; }
 
         .main-container {
             width: 95%;
@@ -124,26 +118,17 @@
             overflow: hidden;
         }
 
-        .featured-image a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .featured-image a:hover {
-            transform: scale(1.02);
-        }
-
         .featured-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.3s ease;
         }
 
-        /* PROJECT BANNERS */
+        .featured-image a:hover img { transform: scale(1.02); }
+
+        /* --- PROJECTS SIDEBAR (FIXED SIZE BANNERS) --- */
         .projects-sidebar {
             display: flex;
             flex-direction: column;
@@ -156,19 +141,17 @@
             letter-spacing: 2px;
             margin-bottom: 15px;
             font-weight: bold;
-            flex-shrink: 0;
         }
 
         .banner-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            flex-grow: 1;
         }
 
         .project-banner {
             width: 100%;
-            flex-grow: 1;
+            height: 140px; /* TINGGI TETAP */
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid #C4A484;
             border-radius: 8px;
@@ -179,13 +162,20 @@
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            min-height: 0;
         }
 
         .project-banner:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             border-color: #e6ccb2;
             box-shadow: 0 0 15px rgba(196, 164, 132, 0.3);
+        }
+
+        /* Styling gambar di dalam banner agar rapi */
+        .project-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .placeholder-label {
@@ -223,8 +213,6 @@
 
         @media (max-width: 1024px) {
             .upper-grid { grid-template-columns: 1fr; }
-            .project-banner { min-height: 120px; }
-            .lang-switch { border-left: none; padding-left: 0; margin-top: 10px; }
             .nav-container { flex-direction: column; gap: 5px; align-items: flex-end; }
         }
     </style>
@@ -235,9 +223,9 @@
     <h1>ORESFALL'S LAB</h1>
     <div class="nav-container">
         <nav class="nav-links">
-            <a href="#">About</a>
-            <a href="#">Projects</a>
-            <a href="#">Archive</a>
+            <a href="#">Tentang</a>
+            <a href="#">Proyek</a>
+            <a href="#">Arsip</a>
         </nav>
         <div class="lang-switch">
             <a href="index_en.html">EN</a>
@@ -262,9 +250,17 @@
         <aside class="projects-sidebar">
             <h2 class="section-title">Proyek Terkini</h2> 
             <div class="banner-container">
-                <a href="#" class="project-banner"><span class="placeholder-label">banner_01</span></a>
-                <a href="#" class="project-banner"><span class="placeholder-label">banner_02</span></a>
-                <a href="#" class="project-banner"><span class="placeholder-label">banner_03</span></a>
+                <a href="#" class="project-banner">
+                    <img src="https://i.imgur.com/DJxTwJb.png" alt="Project Banner 01">
+                </a>
+
+                <a href="#" class="project-banner">
+                    <span class="placeholder-label">banner_02</span>
+                </a>
+
+                <a href="#" class="project-banner">
+                    <span class="placeholder-label">banner_03</span>
+                </a>
             </div>
         </aside>
     </div>
